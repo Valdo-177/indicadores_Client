@@ -179,7 +179,8 @@
 
 <main class="main">
   <div class="content">
-    <div class="left-side">
+    <div>
+      <div class="left-side">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 982 239"
@@ -225,14 +226,47 @@
           <clipPath id="a"><path fill="#fff" d="M0 0h982v239H0z" /></clipPath>
         </defs>
       </svg>
-      <h1>Hello, {{ title }}</h1>
-      <p>Congratulations! Your app is running. 🎉</p>
+      <h1>Hello Admin, indicadores_Client</h1>
+      <p>Prueba tecnica por Keyner De la Hoz</p>
     </div>
-    <div class="divider" role="separator" aria-label="Divider"></div>
+      <div class="">
+        <p>heklo desde aki</p>
+       <div class="flex items-center gap-4">
+        <button class="bg-slate-400 hover:bg-slate-500" (click)="getData()">Get Data</button>
+        <button class="bg-slate-400 hover:bg-slate-500" (click)="postData()">Post Data</button>
+        <button class="bg-slate-400 hover:bg-slate-500" (click)="putData()">Put Data</button>
+        <button class="bg-slate-400 hover:bg-slate-500" (click)="deleteData()">Delete Data</button>
+       </div>
+       <div class="card">
+        <p-table [columns]="cols" [value]="indicadores" [tableStyle]="{'min-width': '50rem'}">
+          <ng-template pTemplate="header" let-cols>
+            <tr>
+              @for (item of cols; track item) {
+                <th>{{ item.header }}</th>
+                } @empty {
+                <th>There are no items.</th>
+                }
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-rowData>
+            <tr>
+              @for (item of indicadores; track item) {
+                <th>{{ item }}</th>
+                } @empty {
+                <th>There are no items.</th>
+                }
+            </tr>
+          </ng-template>
+        </p-table>
+        
+    </div>
+      </div>
+    </div>
+    <div class="divider bg-red-600" role="separator" aria-label="Divider"></div>
     <div class="right-side">
       <div class="pill-group">
         @for (item of [
-          { title: 'Explore the Docs', link: 'https://angular.dev' },
+          { title: 'Ver indicadores', link: 'https://angular.dev' },
           { title: 'Learn with Tutorials', link: 'https://angular.dev/tutorials' },
           { title: 'CLI Docs', link: 'https://angular.dev/tools/cli' },
           { title: 'Angular Language Service', link: 'https://angular.dev/tools/language-service' },
